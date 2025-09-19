@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Amazon Clone</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		body {
+			font-family: 'Roboto', Arial, sans-serif;
+			margin: 0;
+			background: #eaeded;
+		}
+		.navbar {
+			background: #131921;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			padding: 0 20px;
+			height: 60px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+		}
+		.navbar .logo {
+			display: flex;
+			align-items: center;
+			margin-right: 30px;
+		}
+		.navbar .logo img {
+			height: 40px;
+			margin-right: 10px;
+		}
+		.navbar .location {
+			display: flex;
+			align-items: center;
+			margin-right: 30px;
+			font-size: 0.95rem;
+		}
+		.navbar .location i {
+			margin-right: 5px;
+		}
+		.navbar .search-bar {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			background: #fff;
+			border-radius: 4px;
+			margin: 0 20px;
+			height: 38px;
+		}
+		.navbar .search-bar input[type="text"] {
+			flex: 1;
+			padding: 8px;
+			border: none;
+			border-radius: 4px 0 0 4px;
+			font-size: 1rem;
+			outline: none;
+		}
+		.navbar .search-bar button {
+			background: #febd69;
+			border: none;
+			border-radius: 0 4px 4px 0;
+			padding: 0 16px;
+			height: 100%;
+			cursor: pointer;
+			font-size: 1.2rem;
+		}
+		.navbar .nav-links {
+			display: flex;
+			gap: 20px;
+			align-items: center;
+		}
+		.navbar .nav-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 1rem;
+			padding: 0 8px;
+			transition: color 0.2s;
+		}
+		.navbar .nav-links a:hover {
+			color: #febd69;
+		}
+		.navbar .cart {
+			display: flex;
+			align-items: center;
+			background: #232f3e;
+			border-radius: 4px;
+			padding: 4px 10px;
+		}
+		.navbar .cart i {
+			margin-right: 5px;
+		}
+		.hero {
+			background: url('https://images.unsplash.com/photo-1515165562835-cf7747c1bc6b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+			height: 320px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-start;
+			color: #232f3e;
+			font-size: 2.2rem;
+			font-weight: bold;
+			padding-bottom: 50px;
+			padding-left: 40px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+		}
+		.products {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+			gap: 28px;
+			padding: 40px 60px;
+		}
+		.product {
+			background: #fff;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+			padding: 20px 18px 18px 18px;
+			text-align: left;
+			position: relative;
+			transition: box-shadow 0.2s;
+		}
+		.product:hover {
+			box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+		}
+		.product img {
+			width: 100%;
+			height: 180px;
+			object-fit: contain;
+			border-radius: 4px;
+			background: #f7f7f7;
+		}
+		.product h3 {
+			font-size: 1.1rem;
+			margin: 12px 0 5px;
+			font-weight: 700;
+		}
+		.product p {
+			color: #555;
+			font-size: 0.97rem;
+			margin-bottom: 8px;
+		}
+		.product .price {
+			color: #b12704;
+			font-weight: bold;
+			margin: 10px 0 8px 0;
+			font-size: 1.1rem;
+		}
+		.product button {
+			background: #ffd814;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			font-weight: bold;
+			cursor: pointer;
+			transition: background 0.2s;
+			font-size: 1rem;
+		}
+		.product button:hover {
+			background: #f7ca00;
+		}
+		.footer {
+			background: #232f3e;
+			color: #fff;
+			text-align: center;
+			padding: 20px 0;
+			margin-top: 40px;
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<span class="logo">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+		</span>
+		<div class="location">
+			<i class="fa fa-map-marker-alt"></i>
+			<span>Deliver to <b>India</b></span>
+		</div>
+		<form class="search-bar" onsubmit="return false;">
+			<input type="text" placeholder="Search Amazon.in">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+		<div class="nav-links">
+			<a href="#">Hello, Sign in</a>
+			<a href="#">Returns & Orders</a>
+			<a href="#" class="cart"><i class="fa fa-shopping-cart"></i> Cart</a>
+		</div>
+	</div>
+	<!-- Offer Posters Carousel -->
+	<div class="offers-carousel" style="background:#fff; padding:18px 0 0 0; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+		<div style="display:flex; justify-content:center; gap:24px; overflow-x:auto; padding:0 40px;">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/GW/Sept/Unrec/Deals-PC-2x._SY608_CB596741986_.jpg" alt="Fashion Deals" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Books/092023/GW/Bookstore_Desktop_hero_1x._SY608_CB596741986_.jpg" alt="Bookstore Offer" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Beauty/GW/Sept/Unrec/PC-2x._SY608_CB596741986_.jpg" alt="Beauty Sale" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/CEPC/GW/Sept/Unrec/PC-2x._SY608_CB596741986_.jpg" alt="Electronics Offer" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Home/GW/Sept/Unrec/PC-2x._SY608_CB596741986_.jpg" alt="Home Essentials" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+			<img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Toys/GW/Sept/Unrec/PC-2x._SY608_CB596741986_.jpg" alt="Toys & Games" style="height:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+		</div>
+	</div>
+	<div class="hero">
+		Shop deals, electronics, books & more
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/61IxWv3ecpL._AC_SL1000_.jpg" alt="Echo Dot">
+			<h3>Echo Dot (4th Gen)</h3>
+			<p>Smart speaker with Alexa (Blue)</p>
+			<div class="price">₹4,499</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51Da2Z+FTBL._AC_SL1000_.jpg" alt="Fire TV Stick">
+			<h3>Fire TV Stick</h3>
+			<p>Streaming device with Alexa Voice Remote</p>
+			<div class="price">₹2,999</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/61M1p5Pz8-L._AC_SL1000_.jpg" alt="Kindle Paperwhite">
+			<h3>Kindle Paperwhite</h3>
+			<p>Waterproof e-reader with 8GB storage</p>
+			<div class="price">₹13,999</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/61b6ZQYQFNL._AC_SL1000_.jpg" alt="Amazon Basics Mouse">
+			<h3>Amazon Basics Mouse</h3>
+			<p>Wireless mouse for everyday use</p>
+			<div class="price">₹499</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/71c5lQGQF7L._AC_SL1000_.jpg" alt="Samsung Galaxy M14">
+			<h3>Samsung Galaxy M14</h3>
+			<p>5G Smartphone, 128GB, Blue</p>
+			<div class="price">₹13,490</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/81pL3g6HhJL._AC_SL1500_.jpg" alt="Prestige Pressure Cooker">
+			<h3>Prestige Pressure Cooker</h3>
+			<p>Aluminium, 3 Litres, Silver</p>
+			<div class="price">₹1,099</div>
+			<button>Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SL1500_.jpg" alt="Toy Car">
+			<h3>Remote Control Toy Car</h3>
+			<p>Rechargeable, Red</p>
+			<div class="price">₹799</div>
+			<button>Add to Cart</button>
+		</div>
+	</div>
+	<div class="footer">
+		&copy; 2025 Amazon Clone. Built for DevDays.
+	</div>
+</body>
+</html>
 
